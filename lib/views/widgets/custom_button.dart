@@ -3,22 +3,25 @@ import 'package:flutter/material.dart';
 import '../../constants.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key});
-
+  const CustomButton({super.key, this.onTap});
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.sizeOf(context).width,
-      height: 55,
-      decoration: BoxDecoration(
-        color: kPrimaryColor,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: const Center(
-        child: Text(
-          "Add",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: MediaQuery.sizeOf(context).width,
+        height: 55,
+        decoration: BoxDecoration(
+          color: kPrimaryColor,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: const Center(
+          child: Text(
+            "Add",
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black),
+          ),
         ),
       ),
     );
