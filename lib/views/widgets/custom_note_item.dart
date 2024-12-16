@@ -1,9 +1,16 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
+  const NoteItem({
+    super.key,
+    required this.note,
+  });
+  final NoteModel note;
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +25,10 @@ class NoteItem extends StatelessWidget {
       child: Container(
         padding:
             const EdgeInsetsDirectional.only(top: 24, bottom: 24, start: 24),
-        decoration: const BoxDecoration(
-          color: Color(0xFFFFCC80),
-          borderRadius: BorderRadius.all(
+        decoration: BoxDecoration(
+          // color: Color(0xFFFFCC80),
+          color: Color(note.color),
+          borderRadius: const BorderRadius.all(
             Radius.circular(16),
           ),
         ),
@@ -29,14 +37,16 @@ class NoteItem extends StatelessWidget {
           children: [
             ListTile(
                 contentPadding: const EdgeInsets.all(0),
-                title: const Text(
-                  "Flutter Tips",
-                  style: TextStyle(fontSize: 26, color: Colors.black),
+                title: Text(
+                  // "Flutter Tips",
+                  note.title,
+                  style: const TextStyle(fontSize: 26, color: Colors.black),
                 ),
                 subtitle: Padding(
                   padding: const EdgeInsetsDirectional.only(top: 16),
                   child: Text(
-                    "Build your Career with ayman mansour",
+                    // "Build your Career with ayman mansour",
+                    note.subTitle,
                     style: TextStyle(
                         fontSize: 16, color: Colors.black.withOpacity(.5)),
                   ),
@@ -56,7 +66,8 @@ class NoteItem extends StatelessWidget {
             Padding(
               padding: const EdgeInsetsDirectional.only(end: 24, top: 16),
               child: Text(
-                "May21 , 2024",
+                // "May21 , 2024",
+                note.date,
                 style: TextStyle(
                     fontSize: 16, color: Colors.black.withOpacity(0.4)),
               ),
