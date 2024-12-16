@@ -21,7 +21,7 @@ class CustomIcon extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(5),
         child: IconButton(onPressed: onPressed, icon: Icon(icon)),
       ),
     );
