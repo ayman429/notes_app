@@ -1,11 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-class CustomSearchIcon extends StatelessWidget {
+class CustomIcon extends StatelessWidget {
   final IconData icon;
-  const CustomSearchIcon({
+  final void Function()? onPressed;
+  const CustomIcon({
     super.key,
     required this.icon,
+    this.onPressed,
   });
 
   @override
@@ -20,7 +22,7 @@ class CustomSearchIcon extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(10),
-        child: Icon(icon),
+        child: IconButton(onPressed: onPressed, icon: Icon(icon)),
       ),
     );
   }
